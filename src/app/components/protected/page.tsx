@@ -1,22 +1,20 @@
-import { useRouter } from 'next/router'
-import React, { use } from 'react'
-import { useEffect } from 'react'
+"use client";
+import { useRouter } from "next/navigation";
+import React, { useEffect, PropsWithChildren } from "react";
 
-const ProtectedRoute = ({childern}:{childern:React.ReactNode}) => {
-    const router = useRouter()
+const ProtectedRoute: React.FC<PropsWithChildren> = ({ children }) => {
+  const router = useRouter();
 
-    useEffect(() => {
-        const isLoggedin = localStorage.getItem('isLoggedIn')
-        if(!isLoggedin){
-            router.push('/admin')
-        }
-    },[router])
-    
-  return (
-    <>
-        {childern}
-    </>
-  )
-}
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const isLoggedIn = localStorage.getItem("isLoggedIn");
+      if (!isLoggedIn) {
+        router.push("/admin");
+      }
+    }
+  }, [router]);
 
-export default ProtectedRoute
+  return <>{children}</>;
+};
+
+export default ProtectedRoute;
