@@ -1,28 +1,16 @@
 "use client";
 import { useState } from "react";
-
-interface Order {
-  id: string;
-  productImage: string;
-  productName: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  address: string;
-  phone: string;
-  postalCode: string;
-  pan: string;
-  price: number;
-  totalAmount: number;
-  orderDate: string;
-}
+import Image from "next/image";
+import item1 from "../../../public/assets/products/product1.png";
+import item2 from "../../../public/assets/products/product2.png";
+import item3 from "../../../public/assets/products/product3.png";
 
 const OrdersPage = () => {
   // Dummy order data
-  const [orders] = useState<Order[]>([
+  const [orders] = useState([
     {
       id: "1",
-      productImage: "/path/to/product-image-1.jpg", // Dummy image path
+      productImage: item1,
       productName: "Nike Air Max",
       firstName: "John",
       lastName: "Doe",
@@ -37,7 +25,7 @@ const OrdersPage = () => {
     },
     {
       id: "2",
-      productImage: "/path/to/product-image-2.jpg", // Dummy image path
+      productImage: item2,
       productName: "Nike Running Shoes",
       firstName: "Jane",
       lastName: "Smith",
@@ -52,7 +40,7 @@ const OrdersPage = () => {
     },
     {
       id: "3",
-      productImage: "/path/to/product-image-3.jpg", // Dummy image path
+      productImage: item3,
       productName: "Nike Hoodie",
       firstName: "Alice",
       lastName: "Johnson",
@@ -90,10 +78,12 @@ const OrdersPage = () => {
             {orders.map((order) => (
               <tr key={order.id} className="border-t hover:bg-gray-50">
                 <td className="py-3 px-6">
-                  <img
+                  <Image
                     src={order.productImage}
                     alt={order.productName}
-                    className="w-16 h-16 object-cover"
+                    width={64}
+                    height={64}
+                    className="object-cover rounded"
                   />
                 </td>
                 <td className="py-3 px-6 text-black">{order.productName}</td>
