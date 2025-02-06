@@ -4,6 +4,8 @@ import Image from "next/image";
 import item1 from "../../../public/assets/products/product1.png";
 import item2 from "../../../public/assets/products/product2.png";
 import item3 from "../../../public/assets/products/product3.png";
+import Header from "../Headerfooter/header";
+import Footer from "../Headerfooter/footer";
 
 const OrdersPage = () => {
   // Dummy order data
@@ -56,53 +58,57 @@ const OrdersPage = () => {
   ]);
 
   return (
-    <div className="container mx-auto p-6">
-      <h2 className="text-3xl font-bold mb-6 text-center text-black">Orders</h2>
-      <div className="overflow-x-auto shadow-xl rounded-lg">
-        <table className="min-w-full table-auto bg-white text-left">
-          <thead className="bg-black text-white">
-            <tr>
-              <th className="py-3 px-6">Product Image</th>
-              <th className="py-3 px-6">Product Name</th>
-              <th className="py-3 px-6">Customer Name</th>
-              <th className="py-3 px-6">Price</th>
-              <th className="py-3 px-6">Phone</th>
-              <th className="py-3 px-6">Total Amount</th>
-              <th className="py-3 px-6">Email</th>
-              <th className="py-3 px-6">Postal Code</th>
-              <th className="py-3 px-6">PAN</th>
-              <th className="py-3 px-6">Order Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {orders.map((order) => (
-              <tr key={order.id} className="border-t hover:bg-gray-50">
-                <td className="py-3 px-6">
-                  <Image
-                    src={order.productImage}
-                    alt={order.productName}
-                    width={64}
-                    height={64}
-                    className="object-cover rounded"
-                  />
-                </td>
-                <td className="py-3 px-6 text-black">{order.productName}</td>
-                <td className="py-3 px-6 text-black">
-                  {order.firstName} {order.lastName}
-                </td>
-                <td className="py-3 px-6 text-black">${order.price.toFixed(2)}</td>
-                <td className="py-3 px-6 text-black">{order.phone}</td>
-                <td className="py-3 px-6 text-black">${order.totalAmount.toFixed(2)}</td>
-                <td className="py-3 px-6 text-black">{order.email}</td>
-                <td className="py-3 px-6 text-black">{order.postalCode}</td>
-                <td className="py-3 px-6 text-black">{order.pan}</td>
-                <td className="py-3 px-6 text-black">{order.orderDate}</td>
+    <>
+      <Header />
+      <div className="container mx-auto p-6">
+        <h2 className="text-3xl font-bold mb-6 text-center text-black">Orders</h2>
+        <div className="overflow-x-auto shadow-xl rounded-lg">
+          <table className="min-w-full table-auto bg-white text-left">
+            <thead className="bg-black text-white">
+              <tr>
+                <th className="py-3 px-6">Product Image</th>
+                <th className="py-3 px-6">Product Name</th>
+                <th className="py-3 px-6">Customer Name</th>
+                <th className="py-3 px-6">Price</th>
+                <th className="py-3 px-6">Phone</th>
+                <th className="py-3 px-6">Total Amount</th>
+                <th className="py-3 px-6">Email</th>
+                <th className="py-3 px-6">Postal Code</th>
+                <th className="py-3 px-6">PAN</th>
+                <th className="py-3 px-6">Order Date</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {orders.map((order) => (
+                <tr key={order.id} className="border-t hover:bg-gray-50">
+                  <td className="py-3 px-6">
+                    <Image
+                      src={order.productImage}
+                      alt={order.productName}
+                      width={64}
+                      height={64}
+                      className="object-cover rounded"
+                    />
+                  </td>
+                  <td className="py-3 px-6 text-black">{order.productName}</td>
+                  <td className="py-3 px-6 text-black">
+                    {order.firstName} {order.lastName}
+                  </td>
+                  <td className="py-3 px-6 text-black">${order.price.toFixed(2)}</td>
+                  <td className="py-3 px-6 text-black">{order.phone}</td>
+                  <td className="py-3 px-6 text-black">${order.totalAmount.toFixed(2)}</td>
+                  <td className="py-3 px-6 text-black">{order.email}</td>
+                  <td className="py-3 px-6 text-black">{order.postalCode}</td>
+                  <td className="py-3 px-6 text-black">{order.pan}</td>
+                  <td className="py-3 px-6 text-black">{order.orderDate}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 

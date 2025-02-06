@@ -1,5 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
+import Header from "../Headerfooter/header";
+import Footer from "../Headerfooter/footer";
 
 interface CustomerOrder {
   name: string;
@@ -50,40 +52,44 @@ const UserOrderDetails = () => {
   }, []);
 
   return (
-    <div className="container mx-auto p-6">
-      <h2 className="text-3xl font-bold mb-6 text-center text-black">User  Details</h2>
+    <>
+      <Header />
+      <div className="container mx-auto p-6">
+        <h2 className="text-3xl font-bold mb-6 text-center text-black">User Details</h2>
 
-      {orders.length > 0 ? (
-        <div className="overflow-x-auto shadow-xl rounded-lg">
-          <table className="min-w-full table-auto bg-white text-left">
-            <thead className="bg-black text-white">
-              <tr>
-                <th className="py-3 px-6">Name</th>
-                <th className="py-3 px-6">Email</th>
-                <th className="py-3 px-6">Phone</th>
-                <th className="py-3 px-6">Address</th>
-                <th className="py-3 px-6">City</th>
-                <th className="py-3 px-6">Postal Code</th>
-              </tr>
-            </thead>
-            <tbody>
-              {orders.map((order, index) => (
-                <tr key={index} className="border-t hover:bg-gray-50">
-                  <td className="py-3 px-6 text-black">{order.name}</td>
-                  <td className="py-3 px-6 text-black">{order.email}</td>
-                  <td className="py-3 px-6 text-black">{order.phone}</td>
-                  <td className="py-3 px-6 text-black">{order.address}</td>
-                  <td className="py-3 px-6 text-black">{order.city}</td>
-                  <td className="py-3 px-6 text-black">{order.postalCode}</td>
+        {orders.length > 0 ? (
+          <div className="overflow-x-auto shadow-xl rounded-lg">
+            <table className="min-w-full table-auto bg-white text-left">
+              <thead className="bg-black text-white">
+                <tr>
+                  <th className="py-3 px-6">Name</th>
+                  <th className="py-3 px-6">Email</th>
+                  <th className="py-3 px-6">Phone</th>
+                  <th className="py-3 px-6">Address</th>
+                  <th className="py-3 px-6">City</th>
+                  <th className="py-3 px-6">Postal Code</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      ) : (
-        <p className="text-center text-black">No orders found.</p>
-      )}
-    </div>
+              </thead>
+              <tbody>
+                {orders.map((order, index) => (
+                  <tr key={index} className="border-t hover:bg-gray-50">
+                    <td className="py-3 px-6 text-black">{order.name}</td>
+                    <td className="py-3 px-6 text-black">{order.email}</td>
+                    <td className="py-3 px-6 text-black">{order.phone}</td>
+                    <td className="py-3 px-6 text-black">{order.address}</td>
+                    <td className="py-3 px-6 text-black">{order.city}</td>
+                    <td className="py-3 px-6 text-black">{order.postalCode}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <p className="text-center text-black">No orders found.</p>
+        )}
+      </div>
+      <Footer />
+    </>
   );
 };
 
