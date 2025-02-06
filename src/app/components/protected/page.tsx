@@ -1,8 +1,8 @@
 "use client";
 import { useRouter } from "next/navigation";
-import React, { useEffect, PropsWithChildren } from "react";
+import React, { useEffect } from "react";
 
-const ProtectedRoute: React.FC<PropsWithChildren> = ({ children }) => {
+const ProtectedRoute: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
   const router = useRouter();
 
   useEffect(() => {
