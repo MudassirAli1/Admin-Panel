@@ -2,7 +2,11 @@
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
-const ProtectedRoute = ({ children }: { children?: React.ReactNode }) => {
+interface ProtectedRouteProps {
+  children?: React.ReactNode;
+}
+
+const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   const router = useRouter();
 
   useEffect(() => {
