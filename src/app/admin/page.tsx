@@ -1,8 +1,10 @@
 // pages/admin/login.tsx
 "use client";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import AdminLayout from "../admin/layout"; // Import the AdminLayout
+
+
 
 export default function AdminLogin() {
     const [email, setEmail] = useState("");
@@ -26,7 +28,7 @@ export default function AdminLogin() {
     };
 
     return (
-        <AdminLayout>
+        
             <div className="bg-white p-8 rounded-2xl shadow-2xl w-[450px]">
                 <h2 className="text-black text-2xl font-bold text-center mb-6">Admin Login</h2>
                 <form onSubmit={handleLogin}>
@@ -52,9 +54,9 @@ export default function AdminLogin() {
                     </div>
                     <div className="flex justify-between text-sm mb-4">
                         <div></div>
-                        <a href="/" className="text-blue-500 hover:underline">
+                        <Link href="/" className="text-blue-500 hover:underline">
                             Forgot Password?
-                        </a>
+                        </Link>
                     </div>
                     <button
                         type="submit"
@@ -64,6 +66,6 @@ export default function AdminLogin() {
                     </button>
                 </form>
             </div>
-        </AdminLayout>
+       
     );
 }

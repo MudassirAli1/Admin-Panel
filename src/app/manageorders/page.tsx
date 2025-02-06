@@ -10,7 +10,7 @@ interface Product {
 }
 
 const ManageProducts = () => {
-  const [products, setProducts] = useState<Product[]>([
+  const [products] = useState<Product[]>([
     {
       productName: "Nike Air Max",
       price: 150.0,

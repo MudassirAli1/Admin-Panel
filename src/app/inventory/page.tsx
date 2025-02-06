@@ -53,7 +53,7 @@ const InventoryManagement = () => {
       <div className="bg-gray-100 p-6 rounded-lg shadow-md mb-6">
         <h3 className="text-2xl font-semibold mb-4 text-black">Add New Product</h3>
         <div className="grid grid-cols-2 gap-4">
-        <div>
+          <div>
             <label className="block text-black font-semibold mb-1">Product Name</label>
             <input
               type="text"
@@ -62,8 +62,8 @@ const InventoryManagement = () => {
               onChange={(e) => setNewItem({ ...newItem, productName: e.target.value })}
               className="p-2 border rounded-lg w-full text-black"
             />
-          </div> 
-          {/* Title Input */}
+          </div>
+
           <div>
             <label className="block text-black font-semibold mb-1">Title</label>
             <input
@@ -74,7 +74,7 @@ const InventoryManagement = () => {
               className="p-2 border rounded-lg w-full text-black"
             />
           </div>
-          
+
           <div>
             <label className="block text-black font-semibold mb-1">Category</label>
             <input
@@ -85,6 +85,7 @@ const InventoryManagement = () => {
               className="p-2 border rounded-lg w-full text-black"
             />
           </div>
+
           <div>
             <label className="block text-black font-semibold mb-1">Color</label>
             <input

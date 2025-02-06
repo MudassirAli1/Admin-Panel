@@ -16,7 +16,7 @@ const Header = () => {
       {/* Navigation Links */}
       <div className="container mx-auto flex justify-between items-center px-4 mt-4">
         <nav className="flex space-x-8 justify-center w-full">
-          <Link href="/admin/dashboard">
+          <Link href="/dashboard">
             <span className="hover:text-gray-400 cursor-pointer transition duration-300 ease-in-out transform hover:scale-105">
               Dashboard
             </span>
@@ -26,7 +26,7 @@ const Header = () => {
               Orders
             </span>
           </Link>
-          <Link href="manageorders">
+          <Link href="/manageorders">
             <span className="hover:text-gray-400 cursor-pointer transition duration-300 ease-in-out transform hover:scale-105">
               Manage Orders
             </span>
